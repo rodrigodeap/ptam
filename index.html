@@ -253,7 +253,7 @@
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-10">
         <span class="tag-small"><i class="fas fa-pen-to-square mr-1"></i> análise gratuita</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2">Solicite uma Proposta Técnica ou Análise de Viabilidade</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">Solicite sua Proposta de Avaliação Mercadológica Técnica de Imóveis ou Terreno abaixo:</h2>
         <p class="text-lead-light mt-2">Preencha os dados abaixo e receba um diagnóstico inicial.</p>
       </div>
       <div class="bg-off-white rounded-2xl p-6 md:p-8 shadow-sm border border-white/30">
@@ -280,11 +280,12 @@
                 <option value="Renovação de Aluguel">Renovação de Aluguel</option>
                 <option value="Garantia">Garantia</option>
                 <option value="Parceria">Parceria</option>
+                <option value="Valor real do imóvel">Valor real do imóvel</option>
               </select>
             </div>
           </div>
           <button type="submit" class="btn-gold w-full flex items-center justify-center gap-2 text-base md:text-lg mt-2">
-            <i class="fas fa-paper-plane"></i> Solicitar Proposta Técnica
+            <i class="fas fa-paper-plane"></i> SOLICITAR A PROPOSTA PTAM
           </button>
         </form>
         <p class="text-xs text-gray-400 mt-4 text-center">Seus dados estão protegidos. Não compartilhamos informações.</p>
@@ -329,12 +330,12 @@
         }
 
         // formata texto para WhatsApp
-        let mensagem = `*Solicitação de Proposta Técnica - José da Silva*%0A%0A`;
+        let mensagem = `*Solicitação de Proposta PTAM - José da Silva*%0A%0A`;
         mensagem += `*Nome:* ${encodeURIComponent(nome)}%0A`;
         mensagem += `*WhatsApp:* ${encodeURIComponent(whatsapp)}%0A`;
         if (oabCreci) mensagem += `*OAB/CRECI:* ${encodeURIComponent(oabCreci)}%0A`;
         mensagem += `*Finalidade:* ${encodeURIComponent(finalidade)}%0A%0A`;
-        mensagem += `Gostaria de receber uma análise técnica personalizada.`;
+        mensagem += `Gostaria de receber uma proposta de Avaliação Mercadológica Técnica.`;
 
         // Número de destino (11) 99604-4890
         const numero = '5511996044890'; // formato internacional
