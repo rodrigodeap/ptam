@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Obrigado · José da Silva</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Paleta consistente com a landing page */
+    :root {
+      --navy: #0a1a2f;
+      --navy-light: #132c4a;
+      --gold: #c9a552;
+      --gold-light: #e0c26b;
+      --gold-dark: #a8893b;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+      padding: 3rem 2.5rem;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Ícone de check com pulsação */
+    .check-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      margin-bottom: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
+      box-shadow: 0 0 0 0 rgba(201, 165, 82, 0.4);
+    }
+    .check-wrapper i {
+      font-size: 3.5rem;
+      color: var(--navy);
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(201, 165, 82, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(201, 165, 82, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(201, 165, 82, 0);
+      }
+    }
+
+    /* Animação das ondas no fundo */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .bg-animation .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(201, 165, 82, 0.04);
+      animation: float 12s ease-in-out infinite alternate;
+    }
+    .bg-animation .circle:nth-child(1) {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+      animation-duration: 14s;
+    }
+    .bg-animation .circle:nth-child(2) {
+      width: 300px;
+      height: 300px;
+      bottom: -50px;
+      left: -50px;
+      animation-duration: 10s;
+      animation-delay: -3s;
+    }
+    .bg-animation .circle:nth-child(3) {
+      width: 200px;
+      height: 200px;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-duration: 16s;
+      animation-delay: -6s;
+    }
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, -30px) scale(1.1); }
+    }
+
+    /* Linha dourada decorativa */
+    .gold-line {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 1rem auto 1.5rem auto;
+      border-radius: 4px;
+    }
+
+    /* Badge de confirmação */
+    .badge {
+      display: inline-block;
+      background: rgba(201, 165, 82, 0.15);
+      color: var(--gold-light);
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(201, 165, 82, 0.2);
+    }
+
+    /* Botão de voltar */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      border: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+    .btn-back:hover {
+      background: var(--gold-light);
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(201, 165, 82, 0.3);
+    }
+
+    /* Responsivo */
+    @media (max-width: 480px) {
+      .card {
+        padding: 2rem 1.5rem;
+      }
+      .check-wrapper {
+        width: 80px;
+        height: 80px;
+      }
+      .check-wrapper i {
+        font-size: 2.8rem;
+      }
+      h1 {
+        font-size: 1.8rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fundo com animação -->
+  <div class="bg-animation">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <!-- Card principal -->
+  <div class="card">
+    <!-- Ícone de confirmação com pulsação -->
+    <div class="check-wrapper">
+      <i class="fas fa-check"></i>
+    </div>
+
+    <!-- Badge -->
+    <div class="badge">
+      <i class="fas fa-envelope mr-1"></i> FORMULÁRIO ENVIADO
+    </div>
+
+    <!-- Título -->
+    <h1 class="text-3xl md:text-4xl font-bold text-white mt-3">
+      Obrigado!<br />
+      <span class="text-gold-light" style="color: var(--gold-light);">Sua solicitação foi recebida</span>
+    </h1>
+
+    <!-- Linha decorativa -->
+    <div class="gold-line"></div>
+
+    <!-- Mensagem principal -->
+    <p class="text-white/80 text-base md:text-lg leading-relaxed">
+      Em breve, <strong class="text-white font-semibold">nosso Perito Técnico</strong> entrará em contato para analisar o seu caso com o rigor e a precisão que você merece.
+    </p>
+
+    <!-- Ícones de contato -->
+    <div class="flex justify-center gap-6 mt-5 text-white/40">
+      <div class="flex flex-col items-center">
+        <i class="fas fa-phone text-gold text-xl" style="color: var(--gold);"></i>
+        <span class="text-[10px] mt-1 text-white/30">WhatsApp</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <i class="fas fa-clock text-gold text-xl" style="color: var(--gold);"></i>
+        <span class="text-[10px] mt-1 text-white/30">Até 24h</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <i class="fas fa-shield-alt text-gold text-xl" style="color: var(--gold);"></i>
+        <span class="text-[10px] mt-1 text-white/30">Sigilo total</span>
+      </div>
+    </div>
+
+    <!-- Mensagem adicional com tempo estimado -->
+    <p class="text-white/40 text-sm mt-4 border-t border-white/5 pt-4">
+      <i class="fas fa-hourglass-half mr-1 text-gold" style="color: var(--gold);"></i>
+      Prazo médio de resposta: <strong class="text-white/60">até 24 horas úteis</strong>
+    </p>
+
+    <!-- Botão para voltar -->
+    <a href="https://rodrigodeap.github.io/" class="btn-back">
+      <i class="fas fa-arrow-left"></i> Voltar para a página inicial
+    </a>
+
+    <!-- Rodapé minimalista -->
+    <div class="mt-6 pt-4 border-t border-white/5 text-[10px] text-white/20">
+      <span class="text-gold" style="color: var(--gold);">José</span> da Silva · Perícia & Avaliação Patrimonial
+      <span class="mx-2">·</span> CRECI 203296-F · CNAI 47362
+    </div>
+  </div>
+
+</body>
+</html>
