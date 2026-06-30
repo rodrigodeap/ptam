@@ -348,11 +348,23 @@
 
         const numero = '5511996044890';
         const whatsappUrl = `https://wa.me/${numero}?text=${mensagem}`;
-        window.open(whatsappUrl, '_blank');
+
+        // Abre WhatsApp em nova aba
+        const whatsappWindow = window.open(whatsappUrl, '_blank');
+        if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
+          // Se o popup for bloqueado, redireciona a página atual
+          window.location.href = whatsappUrl;
+        }
 
         // 2. ABRE A URL DE RASTREAMENTO (nova aba) - PARA GOOGLE ADS
         const trackingUrl = 'https://rodrigodeap.github.io/';
-        window.open(trackingUrl, '_blank');
+        const trackingWindow = window.open(trackingUrl, '_blank');
+        if (!trackingWindow || trackingWindow.closed || typeof trackingWindow.closed === 'undefined') {
+          // Se o popup for bloqueado, tenta abrir de outra forma
+          setTimeout(function() {
+            window.open(trackingUrl, '_blank');
+          }, 300);
+        }
       });
     })();
   </script>
