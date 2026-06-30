@@ -318,7 +318,7 @@
     </div>
   </footer>
 
-  <!-- VANILLA JS: Formulário → WhatsApp -->
+  <!-- VANILLA JS: Formulário → WhatsApp + URL de Rastreamento -->
   <script>
     (function() {
       const form = document.getElementById('leadForm');
@@ -338,7 +338,7 @@
           return;
         }
 
-        // formata texto para WhatsApp
+        // 1. ABRE O WHATSAPP (nova aba)
         let mensagem = `*Solicitação de Proposta PTAM - José da Silva*%0A%0A`;
         mensagem += `*Nome:* ${encodeURIComponent(nome)}%0A`;
         mensagem += `*WhatsApp:* ${encodeURIComponent(whatsapp)}%0A`;
@@ -346,14 +346,13 @@
         mensagem += `*Finalidade:* ${encodeURIComponent(finalidade)}%0A%0A`;
         mensagem += `Gostaria de receber uma proposta de Avaliação Mercadológica Técnica.`;
 
-        // Número de destino (11) 99604-4890
-        const numero = '5511996044890'; // formato internacional
+        const numero = '5511996044890';
+        const whatsappUrl = `https://wa.me/${numero}?text=${mensagem}`;
+        window.open(whatsappUrl, '_blank');
 
-        // monta URL wa.me
-        const url = `https://wa.me/${numero}?text=${mensagem}`;
-
-        // abre em nova aba
-        window.open(url, '_blank');
+        // 2. ABRE A URL DE RASTREAMENTO (nova aba) - PARA GOOGLE ADS
+        const trackingUrl = 'https://rodrigodeap.github.io/';
+        window.open(trackingUrl, '_blank');
       });
     })();
   </script>
