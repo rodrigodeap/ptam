@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>José da Silva · Perícia & Avaliação Patrimonial</title>
+  <!-- Tailwind via CDN + Font Awesome 6 (gratuito) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Estilos customizados para paleta refinada e toques de bronze/dourado -->
+  <style>
+    /* Paleta: Navy, Cinza Chumbo, Branco, Dourado/Bronze */
+    :root {
+      --navy: #0a1a2f;
+      --navy-light: #132c4a;
+      --lead: #2f3e4e;
+      --lead-light: #4b5d6e;
+      --gold: #c9a552;
+      --gold-light: #e0c26b;
+      --gold-dark: #a8893b;
+      --white: #ffffff;
+      --off-white: #f8f9fb;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--off-white);
+      color: var(--navy);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .bg-navy { background-color: var(--navy); }
+    .bg-navy-light { background-color: var(--navy-light); }
+    .bg-lead { background-color: var(--lead); }
+    .bg-gold { background-color: var(--gold); }
+    .bg-gold-light { background-color: var(--gold-light); }
+    .text-gold { color: var(--gold); }
+    .text-gold-light { color: var(--gold-light); }
+    .border-gold { border-color: var(--gold); }
+    .hover-gold:hover { background-color: var(--gold-dark); border-color: var(--gold-dark); transition: all 0.2s ease; }
+    .shadow-gold { box-shadow: 0 4px 14px rgba(201, 165, 82, 0.25); }
+    .btn-gold {
+      background-color: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      border: 1px solid var(--gold);
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(201, 165, 82, 0.2);
+    }
+    .btn-gold:hover {
+      background-color: var(--gold-dark);
+      border-color: var(--gold-dark);
+      box-shadow: 0 6px 16px rgba(201, 165, 82, 0.35);
+      transform: scale(1.02);
+    }
+    .card-bordered {
+      border: 1px solid rgba(47, 62, 78, 0.12);
+      background-color: white;
+      border-radius: 1rem;
+      transition: all 0.2s;
+    }
+    .card-bordered:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .section-alert {
+      background-color: #f1f3f5;
+      border-left: 6px solid var(--gold);
+    }
+    .input-clean {
+      border: 1px solid #d1d9e0;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      background-color: white;
+      transition: 0.2s;
+    }
+    .input-clean:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 165, 82, 0.2);
+    }
+    .select-clean {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234b5d6e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+      padding-right: 2.8rem;
+    }
+    .footer-link {
+      color: rgba(255,255,255,0.7);
+      transition: 0.2s;
+    }
+    .footer-link:hover {
+      color: var(--gold-light);
+    }
+    .gold-separator {
+      height: 3px;
+      width: 60px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 0.5rem 0 1rem 0;
+      border-radius: 4px;
+    }
+    .tag-small {
+      background: rgba(201, 165, 82, 0.12);
+      color: var(--gold-dark);
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    /* responsividade extra para mobile */
+    @media (max-width: 640px) {
+      .btn-gold { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER + HERO (Dobra Principal) -->
+  <header class="bg-navy text-white relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-5 py-4 md:py-6 flex flex-col md:flex-row md:items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl font-bold tracking-tight"><span class="text-gold">José</span> da Silva</span>
+        <span class="hidden sm:inline-block text-xs font-light text-white/60 border-l border-white/20 pl-3">Perícia & Avaliação Patrimonial</span>
+      </div>
+      <div class="mt-2 md:mt-0">
+        <span class="tag-small text-white/90 bg-white/10 border border-white/10"><i class="fas fa-gavel mr-1 text-gold"></i> Exclusivo para Operadores do Direito</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="max-w-6xl mx-auto px-5 py-12 md:py-20 flex flex-col md:flex-row items-center gap-10">
+      <div class="flex-1">
+        <div class="tag-small text-white/80 bg-white/10 border-white/10 mb-4"><i class="fas fa-scale-balanced mr-1 text-gold"></i> Laudos com fundamentação irrefutável</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          Laudos Periciais e <span class="text-gold">PTAM</span> com Fundamentação Irrefutável
+        </h1>
+        <p class="text-lg md:text-xl text-white/80 mt-4 max-w-2xl">
+          Elimine o risco de impugnações. Avaliações imobiliárias com rigor técnico absoluto (Norma ABNT NBR 14653) para litígios, partilhas, renovatórias e transações de alta complexidade.
+        </p>
+        <div class="mt-8">
+          <a href="#form-section" class="btn-gold inline-flex items-center gap-2 text-base md:text-lg">
+            <i class="fab fa-whatsapp"></i> Falar com o Perito via WhatsApp
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-4 mt-6 text-sm text-white/50">
+          <span><i class="fas fa-check-circle text-gold mr-1"></i> CNAI 47362</span>
+          <span><i class="fas fa-check-circle text-gold mr-1"></i> ABNT NBR 14653</span>
+          <span><i class="fas fa-check-circle text-gold mr-1"></i> Inferência Estatística</span>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center md:justify-end">
+        <div class="bg-navy-light/60 border border-white/10 rounded-2xl p-6 backdrop-blur-sm w-full max-w-sm">
+          <div class="text-gold text-sm font-semibold uppercase tracking-wider"><i class="fas fa-shield-alt mr-2"></i>Garantia de solidez</div>
+          <div class="gold-separator"></div>
+          <p class="text-white/80 text-sm">“Laudo blindado contra contestações, pronto para embasar decisões judiciais.”</p>
+          <div class="mt-4 flex items-center gap-2 text-white/60 text-xs">
+            <i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i>
+            <span class="ml-1">+1000 laudos técnicos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO DE ALERTA (O Problema) -->
+  <section class="section-alert py-12 md:py-16 px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <div class="bg-navy/5 p-3 rounded-full"><i class="fas fa-triangle-exclamation text-3xl text-gold-dark"></i></div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy">A maior causa de anulação de laudos em tribunais é o <span class="text-gold-dark">"achismo"</span>.</h2>
+          <p class="text-lead text-lg mt-2 max-w-3xl">Avaliações baseadas apenas na "experiência de mercado" caem na primeira contestação. Nosso PTAM é uma peça técnica fundamentada em inferência estatística, blindada contra contestações e pronta para embasar decisões judiciais.</p>
+          <p class="text-navy font-semibold text-lg mt-3 bg-white/60 inline-block px-4 py-2 rounded-lg border border-gold/30">
+            <i class="fas fa-shield-alt text-gold-dark mr-2"></i>Evite retrabalho. Garanta laudos que resistem ao contraditório.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES SEGMENTADAS (Cards) -->
+  <section class="py-16 px-5 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="tag-small"><i class="fas fa-briefcase mr-1"></i> soluções sob medida</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">Para cada perfil, uma entrega técnica</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="card-bordered p-6 md:p-8 flex flex-col items-start">
+          <div class="bg-navy/5 p-3 rounded-full mb-4"><i class="fas fa-scale-balanced text-2xl text-gold-dark"></i></div>
+          <h3 class="text-xl font-bold">Para Advogados</h3>
+          <p class="text-lead-light mt-2 text-sm leading-relaxed">Assistência Técnica Pericial. Formulação de quesitos e laudos divergentes para proteger o patrimônio do seu cliente.</p>
+          <div class="mt-4 text-xs font-medium text-gold-dark"><i class="fas fa-chevron-right mr-1"></i> divergência técnica</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card-bordered p-6 md:p-8 flex flex-col items-start">
+          <div class="bg-navy/5 p-3 rounded-full mb-4"><i class="fas fa-gavel text-2xl text-gold-dark"></i></div>
+          <h3 class="text-xl font-bold">Para Juízes/Varas</h3>
+          <p class="text-lead-light mt-2 text-sm leading-relaxed">Perícia Judicial. Auxílio direto ao Juízo com imparcialidade, rigor metodológico e cumprimento de prazos.</p>
+          <div class="mt-4 text-xs font-medium text-gold-dark"><i class="fas fa-chevron-right mr-1"></i> imparcialidade total</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card-bordered p-6 md:p-8 flex flex-col items-start">
+          <div class="bg-navy/5 p-3 rounded-full mb-4"><i class="fas fa-handshake text-2xl text-gold-dark"></i></div>
+          <h3 class="text-xl font-bold">Para Corretores</h3>
+          <p class="text-lead-light mt-2 text-sm leading-relaxed">Parcerias Estratégicas. Terceirize a avaliação de ativos complexos e entregue um documento com selo CNAI ao seu investidor.</p>
+          <div class="mt-4 text-xs font-medium text-gold-dark"><i class="fas fa-chevron-right mr-1"></i> selo CNAI 47362</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGIA E CREDIBILIDADE (Grid de Autoridade) -->
+  <section class="py-16 px-5 bg-navy text-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="tag-small bg-white/10 text-gold-light border-white/10"><i class="fas fa-certificate mr-1"></i> padrão ouro</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">O Padrão Ouro em Avaliação</h2>
+        <div class="gold-separator mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/5">
+          <div class="bg-gold/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto"><i class="fas fa-medal text-2xl text-gold"></i></div>
+          <h4 class="text-lg font-semibold mt-3">CNAI 47362</h4>
+          <p class="text-white/60 text-sm">Credenciamento de excelência em avaliações patrimoniais.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/5">
+          <div class="bg-gold/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto"><i class="fas fa-file-lines text-2xl text-gold"></i></div>
+          <h4 class="text-lg font-semibold mt-3">ABNT NBR 14653</h4>
+          <p class="text-white/60 text-sm">Metodologia rigorosa, conforme norma técnica vigente.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/5">
+          <div class="bg-gold/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto"><i class="fas fa-chart-line text-2xl text-gold"></i></div>
+          <h4 class="text-lg font-semibold mt-3">Inferência Estatística Avançada</h4>
+          <p class="text-white/60 text-sm">Tratamento de dados com modelos preditivos e regressão.</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/5">
+          <div class="bg-gold/20 w-12 h-12 rounded-full flex items-center justify-center mx-auto"><i class="fas fa-lock text-2xl text-gold"></i></div>
+          <h4 class="text-lg font-semibold mt-3">Sigilo Profissional Absoluto</h4>
+          <p class="text-white/60 text-sm">Confidencialidade garantida em cada etapa do processo.</p>
+        </div>
+      </div>
+      <!-- Botão adicionado na seção O Padrão Ouro -->
+      <div class="text-center mt-12">
+        <a href="#form-section" class="btn-gold inline-flex items-center gap-2 text-base md:text-lg">
+          <i class="fas fa-file-pdf"></i> Solicite gratuitamente o Modelo de Laudo (Blindado)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO DE CAPTURA (Fundo de Funil) -->
+  <section id="form-section" class="py-16 px-5 bg-white scroll-mt-16">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="tag-small"><i class="fas fa-pen-to-square mr-1"></i> análise gratuita</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2">Solicite sua Proposta de Avaliação Mercadológica Técnica de Imóveis ou Terreno abaixo:</h2>
+        <p class="text-lead-light mt-2">Preencha os dados abaixo e receba um diagnóstico inicial.</p>
+      </div>
+      <div class="bg-off-white rounded-2xl p-6 md:p-8 shadow-sm border border-white/30">
+        <form id="leadForm" class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1">Nome Completo <span class="text-red-500">*</span></label>
+            <input type="text" id="nome" placeholder="Ex: Dr. João Silva" required class="input-clean" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-1">WhatsApp <span class="text-red-500">*</span></label>
+            <input type="tel" id="whatsapp" placeholder="(11) 99604-4890" required class="input-clean" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-navy mb-1">OAB / CRECI <span class="text-gray-400 text-xs">(opcional)</span></label>
+              <input type="text" id="oab_creci" placeholder="Ex: CRECI 203296-F" class="input-clean" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-navy mb-1">Finalidade <span class="text-red-500">*</span></label>
+              <select id="finalidade" required class="input-clean select-clean">
+                <option value="">Selecione</option>
+                <option value="Ação Judicial">Ação Judicial</option>
+                <option value="Partilha/Inventário">Partilha/Inventário</option>
+                <option value="Renovação de Aluguel">Renovação de Aluguel</option>
+                <option value="Garantia">Garantia</option>
+                <option value="Parceria">Parceria</option>
+                <option value="Valor real do imóvel">Valor real do imóvel</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-gold w-full flex items-center justify-center gap-2 text-base md:text-lg mt-2">
+            <i class="fas fa-paper-plane"></i> SOLICITAR A PROPOSTA PTAM
+          </button>
+        </form>
+        <p class="text-xs text-gray-400 mt-4 text-center">Seus dados estão protegidos. Não compartilhamos informações.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-navy text-white py-8 px-5 border-t border-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <span class="text-xl font-bold tracking-tight"><span class="text-gold">José</span> da Silva</span>
+        <span class="block text-xs text-white/40 mt-1">Perícia & Avaliação Patrimonial</span>
+        <span class="block text-xs text-white/30 mt-0.5">CRECI 203296-F · CNAI 47362</span>
+      </div>
+      <div class="text-center md:text-right text-sm text-white/50 space-y-1">
+        <p>© 2026 José da Silva · Todos os direitos reservados</p>
+        <p><a href="mailto:josedasilva@apnegocioimobiliario.com.br" class="footer-link">josedasilva@apnegocioimobiliario.com.br</a></p>
+        <p class="text-[10px] text-white/30">Desenvolvido com rigor técnico e inferência estatística.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VANILLA JS: Formulário → WhatsApp + Redirecionamento -->
+  <script>
+    (function() {
+      const form = document.getElementById('leadForm');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // captura campos
+        const nome = document.getElementById('nome').value.trim();
+        const whatsapp = document.getElementById('whatsapp').value.trim();
+        const oabCreci = document.getElementById('oab_creci').value.trim();
+        const finalidade = document.getElementById('finalidade').value;
+
+        // validação básica (campos obrigatórios)
+        if (!nome || !whatsapp || !finalidade) {
+          alert('Por favor, preencha todos os campos obrigatórios (*).');
+          return;
+        }
+
+        // 1. ABRE O WHATSAPP (nova aba)
+        let mensagem = `*Solicitação de Proposta PTAM - José da Silva*%0A%0A`;
+        mensagem += `*Nome:* ${encodeURIComponent(nome)}%0A`;
+        mensagem += `*WhatsApp:* ${encodeURIComponent(whatsapp)}%0A`;
+        if (oabCreci) mensagem += `*OAB/CRECI:* ${encodeURIComponent(oabCreci)}%0A`;
+        mensagem += `*Finalidade:* ${encodeURIComponent(finalidade)}%0A%0A`;
+        mensagem += `Gostaria de receber uma proposta de Avaliação Mercadológica Técnica.`;
+
+        const numero = '5511996044890';
+        const whatsappUrl = `https://wa.me/${numero}?text=${mensagem}`;
+        window.open(whatsappUrl, '_blank');
+
+        // 2. REDIRECIONA PARA A PÁGINA DE OBRIGADO (mesma aba)
+        window.location.href = 'https://rodrigodeap.github.io/ptam/obrigado';
+      });
+    })();
+  </script>
+</body>
+</html>
